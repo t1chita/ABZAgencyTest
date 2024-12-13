@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct TestTaskApp: App {
+    @State private var networkManager = NetworkManager()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Group {
+                if networkManager.isConnected {
+                    MainTabView()
+                } else {
+                    NoInternetConnectionScreen()
+                }
+            }
+                .environment(networkManager)
         }
     }
 }
