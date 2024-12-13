@@ -34,6 +34,7 @@ struct CustomTabBar: View {
                     Text(tab.rawValue)
                         .font(.system(size: 16, weight: .regular))
                         .foregroundStyle(selectedTab == tab ? .mySecondary : .black60)
+                    
                 }
                 .onTapGesture {
                     withAnimation {
@@ -49,7 +50,7 @@ struct CustomTabBar: View {
         }
         .padding(.horizontal, 45)
         .frame(maxWidth: .infinity)
-        .padding(.vertical)
+        .padding(.vertical, 24)
         .background(
             Rectangle()
                 .foregroundStyle(.tabBarBackground)

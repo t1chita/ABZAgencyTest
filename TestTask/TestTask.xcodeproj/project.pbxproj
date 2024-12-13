@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2681A7212D0BF1DE0082CB5A /* NetworkingPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 2681A7202D0BF1DE0082CB5A /* NetworkingPackage */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		2681A6D42D0B07D80082CB5A /* TestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2681A7212D0BF1DE0082CB5A /* NetworkingPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = TestTask;
 			packageProductDependencies = (
+				2681A7202D0BF1DE0082CB5A /* NetworkingPackage */,
 			);
 			productName = TestTask;
 			productReference = 2681A6D42D0B07D80082CB5A /* TestTask.app */;
@@ -94,6 +100,9 @@
 			);
 			mainGroup = 2681A6CB2D0B07D80082CB5A;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				2681A71F2D0BF1DE0082CB5A /* XCRemoteSwiftPackageReference "Networking" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2681A6D52D0B07D80082CB5A /* Products */;
 			projectDirPath = "";
@@ -324,6 +333,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2681A71F2D0BF1DE0082CB5A /* XCRemoteSwiftPackageReference "Networking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/t1chita/Networking";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2681A7202D0BF1DE0082CB5A /* NetworkingPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2681A71F2D0BF1DE0082CB5A /* XCRemoteSwiftPackageReference "Networking" */;
+			productName = NetworkingPackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2681A6CC2D0B07D80082CB5A /* Project object */;
 }

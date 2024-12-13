@@ -1,0 +1,15 @@
+{
+  "originHash" : "a0700db99ed45365b7683b61e60b1deab015214fe11b967393d6af0da4c00f24",
+  "pins" : [
+    {
+      "identity" : "networking",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/t1chita/Networking",
+      "state" : {
+        "branch" : "main",
+        "revision" : "cf10f7fd7fcf38643dded3b5a8f2d958104ac55a"
+      }
+    }
+  ],
+  "version" : 3
+}

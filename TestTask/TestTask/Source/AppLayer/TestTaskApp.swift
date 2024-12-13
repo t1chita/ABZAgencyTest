@@ -15,7 +15,7 @@ struct TestTaskApp: App {
         WindowGroup {
             Group {
                 if networkManager.isConnected {
-                    MainTabView()
+                    MainTabView(mainTabVM: MainTabViewModel())
                 } else {
                     NoInternetConnectionScreen()
                 }
