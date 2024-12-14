@@ -20,7 +20,7 @@ final class UsersViewModel: ObservableObject {
     
     private func getUsers(completion: @escaping (Bool) -> Void) {
         NetworkService.shared.sendRequest(endPoint: EndPointsManager.getUsers(page: page, count: 6)) { [weak self] (result: Result<UsersResponse, NetworkError>) in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
                 switch result {
                 case .success(let success):
                     self?.users.append(contentsOf: success.users)

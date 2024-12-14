@@ -14,9 +14,22 @@
 		2681A6D42D0B07D80082CB5A /* TestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		264E853F2D0D73E700301820 /* Exceptions for "TestTask" folder in "TestTask" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 2681A6D32D0B07D80082CB5A /* TestTask */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2681A6D62D0B07D80082CB5A /* TestTask */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				264E853F2D0D73E700301820 /* Exceptions for "TestTask" folder in "TestTask" target */,
+			);
 			path = TestTask;
 			sourceTree = "<group>";
 		};
@@ -264,6 +277,8 @@
 				DEVELOPMENT_TEAM = R6XNAQSMZ9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TestTask/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "The app needs the camera to take a photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -293,6 +308,8 @@
 				DEVELOPMENT_TEAM = R6XNAQSMZ9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TestTask/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "The app needs the camera to take a photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

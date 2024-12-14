@@ -8,11 +8,13 @@ enum TextFieldStyles {
 struct TTTextField: View {
     let placeHolder: String
     let supportingText: String
-    let style: TextFieldStyles
     let errorText: String?
-
+    @Binding var text: String
+    var isValid: () -> Bool
+    
     @FocusState private var isTextFieldFocused: Bool
-    @State var text: String = ""
+    @State private var hasUserTappedTextField: Bool = false
+    @State private var style: TextFieldStyles = .normal
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -44,21 +46,26 @@ struct TTTextField: View {
                         lineWidth: 1
                     )
             )
-
+            
             // Supporting or Error Text
             Text(style == .error ? (errorText ?? "") : supportingText)
                 .foregroundColor(style == .error ? .error : .gray)
                 .font(.footnote)
                 .padding(.leading, 16)
         }
+        .onChange(of: isTextFieldFocused) { _, newValue in
+            if newValue && !hasUserTappedTextField {
+                hasUserTappedTextField = true
+                print("User tapped the text field for the first time!")
+            }
+        }
+        .onChange(of: text) { _, newValue in
+            if hasUserTappedTextField && newValue == "" {
+                style = .error
+            } else {
+                style = isValid() ? .normal : .error
+            }
+        }
         .animation(.default, value: isTextFieldFocused)
     }
-}
-
-#Preview {
-    VStack {
-        TTTextField(placeHolder: "Label", supportingText: "Supporting Text", style: .normal, errorText: nil)
-        TTTextField(placeHolder: "Label", supportingText: "Error Text", style: .error, errorText: "Error Text")
-    }
-    .padding()
 }

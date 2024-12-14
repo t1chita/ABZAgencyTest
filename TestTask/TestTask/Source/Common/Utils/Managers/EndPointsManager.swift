@@ -11,6 +11,8 @@ import NetworkingPackage
 /// Enum that manages API endpoints for the application.
 enum EndPointsManager {
     case getUsers(page: Int, count: Int)
+    case getPositions
+    case getToken
 }
 
 extension EndPointsManager: EndPoint {
@@ -19,7 +21,7 @@ extension EndPointsManager: EndPoint {
     /// Host URL for the API.
     var host: String {
         switch self {
-        case .getUsers:
+        case .getUsers, .getPositions, .getToken:
             return "frontend-test-assignment-api.abz.agency"
         }
     }
@@ -27,7 +29,7 @@ extension EndPointsManager: EndPoint {
     /// Scheme to be used for the API request (e.g., HTTP or HTTPS).
     var scheme: String {
         switch self {
-        case .getUsers:
+        case .getUsers, .getPositions, .getToken:
             return "https"
         }
     }
@@ -37,13 +39,17 @@ extension EndPointsManager: EndPoint {
         switch self {
         case .getUsers:
             return "/api/v1/users"
+        case .getPositions:
+            return "/api/v1/positions"
+        case .getToken:
+            return "/api/v1/token"
         }
     }
     
     /// HTTP method to be used for the request (GET, POST, etc.).
     var method: NetworkingPackage.RequestMethod {
         switch self {
-        case .getUsers:
+        case .getUsers, .getPositions, .getToken:
             return .get
         }
     }
@@ -51,7 +57,7 @@ extension EndPointsManager: EndPoint {
     /// HTTP headers to be included in the request.
     var header: [String : String]? {
         switch self {
-        case .getUsers:
+        case .getUsers, .getPositions, .getToken:
             return nil // Add any headers if needed, for example authorization token
         }
     }
@@ -59,7 +65,7 @@ extension EndPointsManager: EndPoint {
     /// Request body parameters to be sent with the API request.
     var body: [String : NetworkingPackage.AnyEncodable]? {
         switch self {
-        case .getUsers:
+        case .getUsers, .getPositions, .getToken:
             return nil // No body needed for GET requests
         }
     }
@@ -72,13 +78,15 @@ extension EndPointsManager: EndPoint {
                 "page": AnyEncodable(page),
                 "count": AnyEncodable(count)
             ]
+        case .getPositions, .getToken:
+            return nil // No query parameters for these endpoints
         }
     }
     
     /// Path parameters for the API request, if any.
     var pathParams: [String : String]? {
         switch self {
-        case .getUsers:
+        case .getUsers, .getPositions, .getToken:
             return nil // No path parameters needed
         }
     }

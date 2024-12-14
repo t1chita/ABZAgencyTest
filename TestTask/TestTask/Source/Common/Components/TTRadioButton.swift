@@ -14,7 +14,8 @@ enum RadioButtonStyle {
 
 struct TTRadioButton: View {
     let radioButtonStyle: RadioButtonStyle
-    @State  var isButtonFilled: Bool = false
+    var isButtonFilled: Bool
+    let action: () -> Void
     
     var body: some View {
         switch radioButtonStyle {
@@ -26,7 +27,7 @@ struct TTRadioButton: View {
                     .frame(width: 14, height: 14)
                     .onTapGesture {
                         withAnimation(.default) {
-                            isButtonFilled = false
+                            action()
                         }
                     }
             } else {
@@ -37,11 +38,11 @@ struct TTRadioButton: View {
                 
                     .onTapGesture {
                         withAnimation(.default) {
-                            isButtonFilled = true
+                            action()
                         }
                     }
             }
-
+            
         case .graySecondary:
             if isButtonFilled {
                 Circle()
@@ -57,7 +58,7 @@ struct TTRadioButton: View {
                 
                     .onTapGesture {
                         withAnimation(.default) {
-                            isButtonFilled = false
+                            action()
                         }
                     }
             } else {
@@ -73,15 +74,10 @@ struct TTRadioButton: View {
                     )
                     .onTapGesture {
                         withAnimation(.default) {
-                            isButtonFilled = true
+                            action()
                         }
                     }
             }
         }
     }
-}
-
-#Preview {
-    TTRadioButton(radioButtonStyle: .mediumSecondary)
-    TTRadioButton(radioButtonStyle: .graySecondary)
 }
