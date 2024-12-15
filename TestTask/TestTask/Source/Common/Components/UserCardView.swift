@@ -18,6 +18,8 @@ struct UserCardView: View {
                     .cornerRadius(25)
             } placeholder: {
                 ProgressView()
+                    .frame(width: 50, height: 50)
+                    .cornerRadius(25)
             }
             
             VStack(alignment: .leading, spacing: 8) {

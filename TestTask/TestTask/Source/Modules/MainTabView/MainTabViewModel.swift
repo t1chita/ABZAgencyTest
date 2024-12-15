@@ -8,5 +8,5 @@
 import Foundation
 
 final class MainTabViewModel: ObservableObject {
-    @Published var selectedTab: AppTabs = .signUp
+    @Published var selectedTab: AppTabs = .users
 }
